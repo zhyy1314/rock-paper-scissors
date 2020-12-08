@@ -1,0 +1,47 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>rock paper scissors</title>
+        <meta charset="UTF-8">
+    </head>
+</html> -->
+<script>
+    function computerPlay(){
+        let number = Math.floor(Math.random()*3)
+        switch(number){
+            case 0: 
+                return "Rock";
+                break;
+            case 1:
+                return "Paper";
+                break;
+            case 2:
+                return "Scissors";
+                break;
+            // default:
+            //     return -1;
+        }
+    }
+    function playRound(playerSelection, computerSelection){
+        if(playerSelection === computerSelection){
+            return `Draw, ${playerSelection} equals ${computerSelection}`
+        }
+        else if(playerSelection === "Rock" && computerSelection === "Scissors" || playerSelection === "Paper" && computerSelection === "Rock" || playerSelection === "Scissors" && computerSelection === "Paper"){
+            return `You win, ${playerSelection} beats ${computerSelection}`
+        }
+        else{
+            return `You lose, ${computerSelection} beats ${playerSelection}`
+        }
+    }
+    function game(){
+        numberRound = 5;
+        while(numberRound>0){
+            let playerRawSelection = prompt("please select");
+            playerSelection = playerRawSelection.charAt(0).toUpperCase() + playerRawSelection.slice(1).toLowerCase()
+            computerSelection = computerPlay();
+            console.log(playRound(playerSelection, computerSelection));
+            numberRound--;
+        }
+    }
+    game()
+</script>
